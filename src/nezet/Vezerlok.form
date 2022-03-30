@@ -512,6 +512,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="hozz&#xe1;f&#x171;z"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chbHozzaFuzActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnListbe">
           <Properties>
@@ -547,6 +550,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="jTextField1"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtujSzakActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnComboba">
           <Properties>
@@ -554,6 +560,7 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCombobaActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btnCombobaKeyTyped"/>
           </Events>
         </Component>
       </SubComponents>

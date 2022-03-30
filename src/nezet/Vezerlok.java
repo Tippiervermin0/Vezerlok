@@ -82,12 +82,12 @@ public class Vezerlok extends javax.swing.JFrame {
 
         jTabbedPane1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTabbedPane1.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jTabbedPane1AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -257,6 +257,11 @@ public class Vezerlok extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Dinamikus tartalom"));
 
         chbHozzaFuz.setText("hozzáfűz");
+        chbHozzaFuz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chbHozzaFuzActionPerformed(evt);
+            }
+        });
 
         btnListbe.setText("combo tartalmát Listbe");
         btnListbe.addActionListener(new java.awt.event.ActionListener() {
@@ -275,11 +280,21 @@ public class Vezerlok extends javax.swing.JFrame {
         jLabel3.setText("Új szak:");
 
         txtujSzak.setText("jTextField1");
+        txtujSzak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtujSzakActionPerformed(evt);
+            }
+        });
 
         btnComboba.setText("Felvesz");
         btnComboba.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCombobaActionPerformed(evt);
+            }
+        });
+        btnComboba.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                btnCombobaKeyTyped(evt);
             }
         });
 
@@ -464,6 +479,31 @@ public class Vezerlok extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this.rootPane, "Nincs nem kiválasztva!");
         }
     }//GEN-LAST:event_jTabbedPane1AncestorAdded
+
+    private void txtujSzakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtujSzakActionPerformed
+        
+        
+        
+       
+    }//GEN-LAST:event_txtujSzakActionPerformed
+
+    private void btnCombobaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCombobaKeyTyped
+        if(jTextArea1.equals("")){
+           btnComboba.setEnabled(false);
+        }else{
+           btnComboba.setEnabled(true); 
+        }
+    }//GEN-LAST:event_btnCombobaKeyTyped
+
+    private void chbHozzaFuzActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbHozzaFuzActionPerformed
+        if(chbHozzaFuz.isSelected()){
+           rdbEleje.setEnabled(true);
+           rdbVege.setEnabled(true);
+        }else{
+           rdbEleje.setEnabled(false);
+           rdbVege.setEnabled(false);
+        }
+    }//GEN-LAST:event_chbHozzaFuzActionPerformed
 
     /**
      * @param args the command line arguments
