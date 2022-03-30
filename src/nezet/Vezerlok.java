@@ -7,6 +7,8 @@ package nezet;
 
 import java.awt.event.KeyEvent;
 import javax.swing.DefaultListModel;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.ListModel;
@@ -536,28 +538,26 @@ public class Vezerlok extends javax.swing.JFrame {
     }//GEN-LAST:event_txtujSzakKeyReleased
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-         int kilep = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?","Exit?", JOptionPane.OK_CANCEL_OPTION);
-
-        if (kilep == JOptionPane.CANCEL_OPTION) {
-            setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        } else {
-            System.exit(0);
-        }
+         kilepes();     
     }//GEN-LAST:event_jMenuItem3ActionPerformed
     
     
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-                                           
-        int kilep = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?","Exit?", JOptionPane.OK_CANCEL_OPTION);
+            kilepes();               
+        
+    
+    }//GEN-LAST:event_formWindowClosing
+
+    private void kilepes(){
+        ImageIcon icon = new ImageIcon(this.getClass().getResource("/kepek/kep.jpg"));
+        int kilep = JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to exit?","Exit?", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE,icon);
 
         if (kilep == JOptionPane.CANCEL_OPTION) {
             setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         } else {
-            setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+           System.exit(0);
         }
-    
-    }//GEN-LAST:event_formWindowClosing
-
+    }
     private void jMenu1MenuKeyTyped(javax.swing.event.MenuKeyEvent evt) {//GEN-FIRST:event_jMenu1MenuKeyTyped
         
     }//GEN-LAST:event_jMenu1MenuKeyTyped
