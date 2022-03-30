@@ -5,7 +5,9 @@
  */
 package nezet;
 
+import java.awt.event.KeyEvent;
 import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.ListModel;
 
@@ -79,6 +81,11 @@ public class Vezerlok extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vezérlők használata");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jTabbedPane1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTabbedPane1.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -285,6 +292,11 @@ public class Vezerlok extends javax.swing.JFrame {
                 txtujSzakActionPerformed(evt);
             }
         });
+        txtujSzak.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtujSzakKeyReleased(evt);
+            }
+        });
 
         btnComboba.setText("Felvesz");
         btnComboba.addActionListener(new java.awt.event.ActionListener() {
@@ -340,6 +352,15 @@ public class Vezerlok extends javax.swing.JFrame {
         );
 
         jMenu1.setText("Program");
+        jMenu1.addMenuKeyListener(new javax.swing.event.MenuKeyListener() {
+            public void menuKeyPressed(javax.swing.event.MenuKeyEvent evt) {
+            }
+            public void menuKeyReleased(javax.swing.event.MenuKeyEvent evt) {
+            }
+            public void menuKeyTyped(javax.swing.event.MenuKeyEvent evt) {
+                jMenu1MenuKeyTyped(evt);
+            }
+        });
 
         jMenuItem1.setText("Új");
         jMenu1.add(jMenuItem1);
@@ -349,6 +370,11 @@ public class Vezerlok extends javax.swing.JFrame {
         jMenu1.add(jSeparator1);
 
         jMenuItem3.setText("Kilépés");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem3);
 
         jMenuBar1.add(jMenu1);
@@ -504,6 +530,37 @@ public class Vezerlok extends javax.swing.JFrame {
            rdbVege.setEnabled(false);
         }
     }//GEN-LAST:event_chbHozzaFuzActionPerformed
+
+    private void txtujSzakKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtujSzakKeyReleased
+        
+    }//GEN-LAST:event_txtujSzakKeyReleased
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+         int kilep = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?","Exit?", JOptionPane.OK_CANCEL_OPTION);
+
+        if (kilep == JOptionPane.CANCEL_OPTION) {
+            setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        } else {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    
+    
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+                                           
+        int kilep = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?","Exit?", JOptionPane.OK_CANCEL_OPTION);
+
+        if (kilep == JOptionPane.CANCEL_OPTION) {
+            setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        } else {
+            setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        }
+    
+    }//GEN-LAST:event_formWindowClosing
+
+    private void jMenu1MenuKeyTyped(javax.swing.event.MenuKeyEvent evt) {//GEN-FIRST:event_jMenu1MenuKeyTyped
+        
+    }//GEN-LAST:event_jMenu1MenuKeyTyped
 
     /**
      * @param args the command line arguments
